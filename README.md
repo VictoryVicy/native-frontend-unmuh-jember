@@ -1,4 +1,4 @@
-# 🏛️ TI Unmuh Jember & Forkafest 2023 — Web Native Portal
+# 🏛️ Native Landing Page TI Unmuh Jember & Forkafest 2023
 
 [![Deploy static content to Pages](https://github.com/VictoryVicy/native-frontend-unmuh-jember/actions/workflows/static.yml/badge.svg)](https://github.com/VictoryVicy/native-frontend-unmuh-jember/actions/workflows/static.yml)
 [![Website](https://img.shields.io/badge/Demo-Live%20Website-brightgreen?style=for-the-badge&logo=googlechrome&logoColor=white)](https://victoryvicy.github.io/native-frontend-unmuh-jember/)
