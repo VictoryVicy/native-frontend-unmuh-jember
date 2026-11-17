@@ -8,7 +8,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](LICENSE)
 
 > **Proyek Web Design Competition (2023)**  
-> Portal informasi prodi Teknik Informatika Universitas Muhammadiyah Jember dan perhelatan event **Forkafest 2023**, dibangun secara murni (*pure vanilla / native front-end*) tanpa bantuan framework maupun dependensi backend eksternal.
+> Portal informasi prodi Teknik Informatika Universitas Muhammadiyah Jember dan event **Forkafest 2023**, dibuat dengan *pure vanilla / native front-end* tanpa bantuan framework maupun dependensi backend eksternal.
 
 🔗 **Live Demo:** [https://victoryvicy.github.io/native-frontend-unmuh-jember/](https://victoryvicy.github.io/native-frontend-unmuh-jember/)
 
@@ -16,9 +16,7 @@
 
 ## 📌 Ringkasan Proyek
 
-Proyek ini dirancang dan dikembangkan pada pertengahan tahun **2023** untuk kebutuhan kompetisi web design tingkat mahasiswa. Website ini mengangkat identitas program studi Teknik Informatika Universitas Muhammadiyah Jember sekaligus mempromosikan kegiatan **Forkafest 2023** dengan tema:
-
-> *"Meningkatkan kreativitas generasi muda dengan teknologi digital dalam menghadapi era society 5.0"*
+Proyek ini dirancang dan dikembangkan pada pertengahan tahun **2023** untuk kebutuhan kompetisi web design tingkat SMA/SMK dan mahasiswa. Website ini mengangkat identitas program studi Teknik Informatika Universitas Muhammadiyah Jember.
 
 Situs ini mengedepankan performa ringan, interaktivitas DOM secara native, serta pengalaman visual yang responsif di berbagai resolusi layar.
 
@@ -49,7 +47,7 @@ Situs ini mengedepankan performa ringan, interaktivitas DOM secara native, serta
 | **Beranda** | `index.html` | Landing page utama pengenalan Prodi TI Unmuh Jember, fasilitas, dan sorotan kegiatan. |
 | **Tentang Kami** | `profil.html` | Sejarah berdirinya jurusan, visi & misi, serta informasi akreditasi prodi. |
 | **Prestasi** | `prestasi.html` | Rekapitulasi capaian dan pencapaian mahasiswa Teknik Informatika. |
-| **Forkafest** | `forkafest.html` | Informasi lengkap perhelatan festival dan rangkaian kompetisi Forkafest 2023. |
+| **Forkafest** | `forkafest.html` | Informasi lengkap rangkaian tentang acara kompetisi Forkafest 2023. |
 | **Materi Bahasa** | `bahasa.html` | Edukasi dasar pengenalan bahasa pemrograman (HTML, CSS, JS, Python, PHP, dll.). |
 | **Kuis Online** | `quiz.html` | Mini game kuis pilihan ganda berbasis JavaScript murni. |
 
@@ -126,7 +124,3 @@ Karena proyek ini merupakan **website statis (*Zero Dependency*)**, Anda tidak p
 Didistribusikan di bawah lisensi **GNU General Public License v3.0 (GPL-3.0)**. Silakan baca file [LICENSE](LICENSE) untuk informasi selengkapnya.
 
 ---
-
-<p align="center">
-  Dibuat dengan ❤️ untuk Lomba Web Design 2023 • Teknik Informatika Universitas Muhammadiyah Jember
-</p>
