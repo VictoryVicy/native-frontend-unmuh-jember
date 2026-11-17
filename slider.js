@@ -1,82 +1,70 @@
-var count = 0;
-var directions = {
-	prev: 0,
-	next: 1,
-};
+// Smooth Vanilla JS Slider with Prev/Next Controls & Auto-Slide
+document.addEventListener("DOMContentLoaded", function () {
+  const sliders = document.querySelectorAll(".slider-content figure");
+  const prevButton = document.querySelector(".slider-navigation .btn-prev");
+  const nextButton = document.querySelector(".slider-navigation .btn-next");
+  const sliderContainer = document.querySelector(".slider");
 
-var prevButton = document.querySelector(".slider-navigation button:last-child");
-var nextButton = document.querySelector(".slider-navigation button:last-child");
-var sliders = document.querySelectorAll(".slider-content figure");
-var autoSlideInterval;
+  if (!sliders.length) return;
 
-initListeners();
-startAutoSlide();
+  let currentIndex = 0;
+  let autoSlideTimer = null;
+  const slideIntervalTime = 6000;
 
-function initListeners() {
-	nextButton.addEventListener("click", onNavigationClick);
-	prevButton.addEventListener("click", onNavigationClick);
-}
+  function showSlide(index) {
+    sliders.forEach((slide, i) => {
+      if (i === index) {
+        slide.classList.add("show");
+      } else {
+        slide.classList.remove("show");
+      }
+    });
+    currentIndex = index;
+  }
 
-function onNavigationClick(e) {
-	clearInterval(autoSlideInterval); // Clear the autoSlideInterval
+  function nextSlide() {
+    const nextIndex = (currentIndex + 1) % sliders.length;
+    showSlide(nextIndex);
+  }
 
-	var currentButton = e.target;
-	var index = getElementIndex(e.target);
-	var controlledCount = countController(index);
+  function prevSlide() {
+    const prevIndex = (currentIndex - 1 + sliders.length) % sliders.length;
+    showSlide(prevIndex);
+  }
 
-	var oldSlideItem = sliders[controlledCount.old];
-	var newSlideItem = sliders[controlledCount.new];
+  function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideTimer = setInterval(nextSlide, slideIntervalTime);
+  }
 
-	oldSlideItem.classList.remove("show");
-	currentButton.classList.add("disabled");
+  function stopAutoSlide() {
+    if (autoSlideTimer) {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = null;
+    }
+  }
 
-	var showNextSliderItemInterval = setInterval(function () {
-		newSlideItem.classList.add("show");
-		currentButton.classList.remove("disabled");
-		clearInterval(showNextSliderItemInterval);
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      nextSlide();
+      startAutoSlide();
+    });
+  }
 
-		startAutoSlide(); // Start the autoSlideInterval again after changing the slide
-	}, 500);
-}
+  if (prevButton) {
+    prevButton.addEventListener("click", () => {
+      prevSlide();
+      startAutoSlide();
+    });
+  }
 
+  // Pause on hover
+  if (sliderContainer) {
+    sliderContainer.addEventListener("mouseenter", stopAutoSlide);
+    sliderContainer.addEventListener("mouseleave", startAutoSlide);
+  }
 
-function countController(directionIndex) {
-	var result = { new: 0, old: count };
-	var max = sliders.length;
-
-	if (directionIndex === directions.next) {
-		count = count === max - 1 ? 0 : count + 1;
-	}
-
-	if (directionIndex === directions.prev) {
-		count = count === 0 ? max - 1 : count - 1;
-	}
-
-	result.new = count;
-
-	return result;
-}
-
-function getElementIndex(element) {
-	return Array.from(element.parentElement.children).indexOf(element);
-}
-
-function startAutoSlide() {
-	autoSlideInterval = setInterval(function () {
-		var newIndex = count < sliders.length - 1 ? count + 1 : 0;
-		var currentButton = nextButton;
-		var controlledCount = countController(directions.next);
-
-		var oldSlideItem = sliders[controlledCount.old];
-		var newSlideItem = sliders[controlledCount.new];
-
-		oldSlideItem.classList.remove("show");
-		currentButton.classList.add("disabled");
-
-		var showNextSliderItemInterval = setInterval(function () {
-			newSlideItem.classList.add("show");
-			currentButton.classList.remove("disabled");
-			clearInterval(showNextSliderItemInterval);
-		}, 500);
-	}, 7000);
-}
+  // Initial display & start
+  showSlide(0);
+  startAutoSlide();
+});

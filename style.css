@@ -9,6 +9,10 @@
 
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     overflow-x: hidden !important;
     font-family: 'Open Sans', sans-serif !important;
@@ -219,14 +223,15 @@ nav {
 /* aos animation */
 .aos {
     opacity: 0;
-    transform: translateY(300px);
-    transition: transform 0.5s ease-out, opacity 0.1s ease-out;
+    transform: translateY(35px);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
+    will-change: transform, opacity;
 }
 
 /* Add a CSS class to define the animated state of the element */
 .aos.animate {
     opacity: 1 !important;
-    transform: translateY(0%) !important;
+    transform: translateY(0) !important;
 }
 
 /* ! text */
@@ -1133,41 +1138,44 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-container {
-    display: none;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
     align-items: center;
     justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
-    opacity: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 9999;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
 }
 
 .modal-container.show-m {
-    display: flex;
+    visibility: visible;
     opacity: 1;
     pointer-events: auto;
 }
 
 .modal {
     background-color: #fff;
-    width: 400px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 460px;
+    padding: 32px 28px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
     text-align: center;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-container.show-m .modal {
+    transform: scale(1) translateY(0);
 }
 
 .modal h1 {

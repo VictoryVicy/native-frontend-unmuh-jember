@@ -170,7 +170,10 @@
             </figure>
           </div>
           <div class="slider-navigation">
-            <button>
+            <button class="btn-prev" aria-label="Previous slide">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="btn-next" aria-label="Next slide">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>
@@ -635,169 +638,283 @@
         stroke="none" stroke-width="0" fill="#0d47a1" fill-opacity="1"
         class="transition-all duration-300 ease-in-out delay-150 path-2" transform="rotate(-180 720 200)"></path>
     </svg>
-    <!-- ingfo pendaftaraan -->
+    <!-- Informasi Pendaftaran -->
     <style>
-      .card-c {
-        position: relative;
-        top: 2em;
-        width: 14em;
-        height: 6.5em;
-        background: white;
-        transition: .4s ease-in-out;
-        border-radius: 15px;
-        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-        overflow: hidden;
+      .pendaftaran-section {
+        background-color: #f8f8f8;
+        background-repeat: repeat-x;
+        padding: 60px 15px 90px;
       }
 
-      .details {
-        position: relative;
-        color: black;
-        font-size: 0.6em;
-        padding-top: 1.5em;
-        padding-left: 2em;
-        transition: .4s ease-in-out;
+      .pendaftaran-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 40px;
       }
 
-      .heading {
-        position: relative;
-        color: black;
-        font-weight: bold;
-        font-size: 1.1em;
-        padding-top: 1em;
-        padding-left: 1em;
-        transition: .4s ease-in-out;
+      .pendaftaran-header h1 {
+        font-size: 32px;
+        color: #0d47a1;
+        margin-bottom: 12px;
+        font-weight: 700;
       }
 
-      .detail {
-        position: relative;
-        color: black;
-        font-size: 0.8em;
-        padding-top: 1.5em;
-        top: 9.6em;
-        padding: 0 10px;
-        text-align: justify;
-        transition: .4s ease-in-out;
+      .pendaftaran-header p {
+        font-size: 16px;
+        color: #4b5563;
+        line-height: 1.6;
       }
 
-      .btn1 {
+      .pendaftaran-grid {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 32px;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 950px;
+        margin: 0 auto;
+      }
+
+      .pendaftaran-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px 32px 32px;
+        flex: 1 1 380px;
+        max-width: 440px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(13, 71, 161, 0.08);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         position: relative;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+      }
+
+      .pendaftaran-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(13, 71, 161, 0.12);
+        border-color: rgba(13, 71, 161, 0.25);
+      }
+
+      .pendaftaran-icon-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+        color: #ffffff;
+        font-size: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 20px rgba(13, 71, 161, 0.25);
+        transition: transform 0.4s ease;
+      }
+
+      .pendaftaran-card:hover .pendaftaran-icon-circle {
+        transform: scale(1.08) rotate(4deg);
+      }
+
+      .pendaftaran-badge {
+        display: inline-block;
+        padding: 5px 14px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: 30px;
+        background-color: rgba(255, 183, 3, 0.15);
+        color: #b45309;
+        margin-bottom: 12px;
+      }
+
+      .pendaftaran-title {
+        font-size: 26px;
+        font-weight: 800;
+        color: #0d47a1;
+        margin-bottom: 6px;
+      }
+
+      .pendaftaran-subtitle {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: #6b7280;
+        margin-bottom: 18px;
+      }
+
+      .pendaftaran-desc {
+        font-size: 14.5px;
+        line-height: 1.7;
+        color: #4b5563;
+        margin-bottom: 28px;
+        text-align: center;
+        flex-grow: 1;
+      }
+
+      .pendaftaran-btn {
+        width: 100%;
+        padding: 13px 24px;
+        border-radius: 50px;
+        background: #0d47a1;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 14px;
         border: none;
-        outline: none;
-        background-color: black;
-        color: white;
-        font-size: 0.6em;
-        padding-left: 6.9em;
-        padding-right: 6.9em;
-        padding-top: 0.8em;
-        padding-bottom: 0.85em;
-        border-radius: 10px;
-        left: 2.6em;
-        top: 14.8em;
-        transition: .4s ease-in-out;
-        font-weight: bold;
-      }
-
-      .btn1:hover {
-        background-color: rgb(50, 182, 205);
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 14px rgba(13, 71, 161, 0.2);
+        margin-top: auto;
       }
 
-      .btn2 {
-        position: relative;
-        border: none;
-        outline: none;
-        background-color: black;
-        color: white;
-        font-size: 0.6em;
-        padding-left: 5.1em;
-        padding-right: 5.1em;
-        padding-top: 0.8em;
-        padding-bottom: 0.85em;
-        border-radius: 10px;
-        left: 3.6em;
-        top: 13.5em;
-        transition: .4s ease-in-out;
-        font-weight: bold;
+      .pendaftaran-btn i {
+        transition: transform 0.3s ease;
       }
 
-      .btn2:hover {
-        background-color: rgb(50, 161, 205);
-        cursor: pointer;
+      .pendaftaran-btn:hover {
+        background: #FFB703;
+        color: #000000;
+        box-shadow: 0 6px 18px rgba(255, 183, 3, 0.4);
+        transform: translateY(-2px);
       }
 
-      .glasses {
-        position: relative;
-        top: -3.5em;
-        left: 6em;
-        width: 70px;
-        height: 70px;
-        transition: .4s ease-in-out;
+      .pendaftaran-btn:hover i {
+        transform: translateX(5px);
       }
 
-      .card-c:hover {
-        width: 13.5em;
-        /* 200px */
-        height: 22.7em;
-        /* 350px */
-        transform: translateY(1.25em);
-      }
-
-      .card-c:hover+.glasses {
-        transform: rotateX(360deg);
-        height: 100px;
-        width: 100px;
-        left: 0.3em;
-        top: -17.5em;
-      }
-
-      .card-c:hover .heading {
-        transform: translateY(7em) translateX(3.5em);
-      }
-
-      .card-c:hover .details {
-        opacity: 0;
-        transform: translateY(11em) translateX(6em);
+      @media (max-width: 768px) {
+        .pendaftaran-grid {
+          gap: 24px;
+        }
+        .pendaftaran-card {
+          flex: 1 1 100%;
+          padding: 30px 20px;
+        }
       }
     </style>
-    <section  class="r-bg" style="background-color: #f8f8f8; background-repeat: repeat-x;">
-      <div class="inventory"
-        style="min-height: 70vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-        <div class="wor">
-          <div class="good-md-12 aos">
-            <h1 class="text-center">Informasi Pendaftaran</h1>
-            <p>Penerimaan Mahasiswa Baru di Universitas Muhammadiyah Jember Terdiri Dari Beberapa Jalur</p>
-          </div>
+
+    <section class="pendaftaran-section r-bg">
+      <div class="inventory">
+        <div class="pendaftaran-header aos">
+          <h1>Informasi Pendaftaran</h1>
+          <p>Penerimaan Mahasiswa Baru di Universitas Muhammadiyah Jember Terdiri Dari Beberapa Jalur</p>
         </div>
-        <div class="wor aos" style="width: 100%; min-height: 500px;">
-          <div class="good-md-6"
-            style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-            <div class="card-c">
-              <div class="heading">PMDK</div>
-              <div class="details">&ensp; Point Me !</div>
-              <div class="detail">PMDK merupakan seleksi masuk perguruan tinggi di Universitas Muhammadiyah Jember. PMDK sendiri merupakan kepanjangan dari Penelurusan Minat dan Kemampuan.</div>
-              <button class="btn2">More</button>
+
+        <div class="pendaftaran-grid aos" delay="100">
+          <!-- Card PMDK -->
+          <div class="pendaftaran-card">
+            <div class="pendaftaran-icon-circle">
+              <i class="fa-solid fa-graduation-cap"></i>
             </div>
-            <div class="glasses">
-              <i class="fa-solid fa-book" style="font-size: 100px;"></i>
-            </div>
+            <span class="pendaftaran-badge">Jalur Prestasi</span>
+            <h3 class="pendaftaran-title">PMDK</h3>
+            <div class="pendaftaran-subtitle">Penelusuran Minat & Kemampuan</div>
+            <p class="pendaftaran-desc">
+              PMDK merupakan seleksi masuk perguruan tinggi di Universitas Muhammadiyah Jember berdasarkan penelusuran nilai rapor serta prestasi akademik maupun non-akademik tanpa tes tertulis.
+            </p>
+            <button class="pendaftaran-btn" onclick="openPendaftaranModal('pmdk')">
+              <span>Detail Informasi</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </div>
-          <div class="good-md-6"
-            style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-            <div class="card-c">
-              <div class="heading">SMPTM</div>
-              <div class="details">&ensp; Point Me !</div>
-              <div class="detail">SMP TM merupakan seleksi masuk perguruan tinggi di universitas muhammadiyah jember. SMP
-                TM sendiri
-                merupakan kepanjangan dari Seleksi Masuk Perguruan Tinggi Muhammadiyah.</div>
-              <button class="btn2">More</button>
+
+          <!-- Card SMPTM -->
+          <div class="pendaftaran-card">
+            <div class="pendaftaran-icon-circle">
+              <i class="fa-solid fa-building-columns"></i>
             </div>
-            <div class="glasses">
-              <i class="fa-solid fa-book" style="font-size: 100px;"></i>
-            </div>
+            <span class="pendaftaran-badge">Jalur Bersama</span>
+            <h3 class="pendaftaran-title">SMPTM</h3>
+            <div class="pendaftaran-subtitle">Seleksi Masuk PT Muhammadiyah</div>
+            <p class="pendaftaran-desc">
+              SMPTM merupakan sistem seleksi terpadu penerimaan mahasiswa baru di lingkungan Perguruan Tinggi Muhammadiyah dan 'Aisyiyah di seluruh Indonesia secara serentak dan transparan.
+            </p>
+            <button class="pendaftaran-btn" onclick="openPendaftaranModal('smptm')">
+              <span>Detail Informasi</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Modal Informasi Pendaftaran PMDK -->
+    <div class="modal-container" id="modal_pendaftaran_pmdk">
+      <div class="modal">
+        <div style="font-size: 40px; color: #0d47a1; margin-bottom: 10px;">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <h2 style="color: #0d47a1; margin-bottom: 8px;">Jalur PMDK</h2>
+        <span style="font-size: 13px; font-weight: 600; color: #d97706; background: rgba(255, 183, 3, 0.15); padding: 4px 12px; border-radius: 20px;">Penelusuran Minat & Kemampuan</span>
+        <p style="margin: 18px 0; text-align: left; font-size: 14px; line-height: 1.7; color: #4b5563;">
+          Jalur PMDK diperuntukkan bagi siswa SMA/SMK/MA sederajat yang berprestasi di bidang akademik (nilai rapor) atau bidang olahraga, seni, kepemimpinan, dan keagamaan (Tahfidz).
+        </p>
+        <div style="text-align: left; background: #f8fafc; padding: 14px; border-radius: 10px; margin-bottom: 20px; font-size: 13.5px; color: #334155;">
+          <strong>Keuntungan Jalur PMDK:</strong>
+          <ul style="margin: 8px 0 0 18px; padding: 0;">
+            <li>Bebas tes ujian tulis</li>
+            <li>Potongan biaya pendaftaran / DPP khusus</li>
+            <li>Prioritas pemilihan program studi impian</li>
+          </ul>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://pmb.unmuhjember.ac.id/" target="_blank" style="text-decoration: none; background: #0d47a1; color: #fff; padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px;">
+            <span>Daftar Sekarang</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button onclick="closePendaftaranModal('pmdk')" style="background: #e2e8f0; color: #334155; border: none; padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 13.5px; cursor: pointer;">
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Informasi Pendaftaran SMPTM -->
+    <div class="modal-container" id="modal_pendaftaran_smptm">
+      <div class="modal">
+        <div style="font-size: 40px; color: #0d47a1; margin-bottom: 10px;">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <h2 style="color: #0d47a1; margin-bottom: 8px;">Jalur SMPTM</h2>
+        <span style="font-size: 13px; font-weight: 600; color: #d97706; background: rgba(255, 183, 3, 0.15); padding: 4px 12px; border-radius: 20px;">Seleksi Masuk PT Muhammadiyah</span>
+        <p style="margin: 18px 0; text-align: left; font-size: 14px; line-height: 1.7; color: #4b5563;">
+          Jalur SMPTM memfasilitasi calon mahasiswa baru yang ingin mendaftar ke Universitas Muhammadiyah Jember melalui portal ujian bersama jaringan perguruan tinggi Muhammadiyah se-Indonesia (Computer Based Test atau Portofolio).
+        </p>
+        <div style="text-align: left; background: #f8fafc; padding: 14px; border-radius: 10px; margin-bottom: 20px; font-size: 13.5px; color: #334155;">
+          <strong>Keuntungan Jalur SMPTM:</strong>
+          <ul style="margin: 8px 0 0 18px; padding: 0;">
+            <li>Jaringan seleksi resmi perguruan tinggi Muhammadiyah</li>
+            <li>Fleksibilitas jadwal tes online/CBT mandiri</li>
+            <li>Sertifikat hasil seleksi diakui secara nasional</li>
+          </ul>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://pmb.unmuhjember.ac.id/" target="_blank" style="text-decoration: none; background: #0d47a1; color: #fff; padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px;">
+            <span>Daftar Sekarang</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button onclick="closePendaftaranModal('smptm')" style="background: #e2e8f0; color: #334155; border: none; padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 13.5px; cursor: pointer;">
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openPendaftaranModal(type) {
+        var m = document.getElementById('modal_pendaftaran_' + type);
+        if (m) m.classList.add('show-m');
+      }
+      function closePendaftaranModal(type) {
+        var m = document.getElementById('modal_pendaftaran_' + type);
+        if (m) m.classList.remove('show-m');
+      }
+    </script>
     <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg"
       class="transition duration-300 ease-in-out delay-150">
       <path
