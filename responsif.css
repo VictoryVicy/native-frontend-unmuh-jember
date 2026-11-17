@@ -1,17 +1,42 @@
+/* ==========================================================
+   Responsive Grid & Utility System — TI Unmuh Jember
+   ========================================================== */
+
 /* Grid Container */
 .inventory {
     width: 100%;
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
     box-sizing: border-box;
 }
 
 .inventory-fluid {
     width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
     box-sizing: border-box;
 }
-/* Grid Columns */
+
+/* Flexbox Row Wrapper */
+.wor {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.wor > * {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Base Columns (Mobile-First / Float Fallback) */
 .good-1 {
     width: 8.3333333333%;
     float: left;
@@ -22,13 +47,10 @@
     float: left;
 }
 
-
 .good-6 {
     width: 50%;
     float: left;
 }
-
-
 
 .good-12 {
     width: 100%;
@@ -42,34 +64,38 @@
     clear: both;
 }
 
+/* Responsive Images */
 .image-fluid {
     max-width: 100%;
     height: auto;
-
+    display: block;
 }
 
-/* breakpoint md */
-
-
+/* Breakpoint: Tablet & Desktop (>= 768px) */
 @media (min-width: 768px) {
-
     .good-md {
         flex: 1 0 0%;
     }
 
-
+    .good-md-3 {
+        flex: 0 0 auto;
+        width: 25%;
+    }
 
     .good-md-4 {
         flex: 0 0 auto;
         width: 33.33333333%;
     }
 
-
     .good-md-6 {
         flex: 0 0 auto;
         width: 50%;
     }
 
+    .good-md-8 {
+        flex: 0 0 auto;
+        width: 66.66666667%;
+    }
 
     .good-md-12 {
         flex: 0 0 auto;
@@ -77,28 +103,18 @@
     }
 }
 
+/* Breakpoint: Mobile (< 768px) */
 @media (max-width: 767px) {
     .inventory {
         flex-direction: column;
     }
 
+    .good-md-3,
     .good-md-4,
     .good-md-6,
+    .good-md-8,
     .good-md-12 {
         width: 100%;
         float: none;
     }
-}
-
-
-.wor {
-    display: flex;
-    flex-wrap: wrap;
-
-}
-
-.wor>* {
-    box-sizing: border-box;
-    flex-shrink: 0;
-    max-width: 100%;
 }
